@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+nonce=$(../get-nonce)
+export kid=$(cat ../01register/response.txt | grep Location | awk '{print $2}' | sed 's/\r//g')
+jq --null-input -c ".nonce=\"$nonce\" | .url=\"$(./url)\" | .kid=\"$kid\" | .alg=\"ES256\""

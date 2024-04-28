@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+ORDER_URL=$(cat ../02authorize/response.txt | grep Location | awk '{print $2}' | sed 's/\r//g')
+http $ORDER_URL
+CERTIFICATE=$(http $ORDER_URL | jq -r '.certificate')
+echo $CERTIFICATE
+curl $CERTIFICATE -o certificate.pem

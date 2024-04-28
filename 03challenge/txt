@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+token=$(./authorization | jq -r '.challenges[] | select(.type=="dns-01") | .token')
+THUMB=$(./thumb)
+echo $token.$THUMB
+printf "%s.%s" $token $THUMB | openssl dgst -sha256 -binary | ../encode

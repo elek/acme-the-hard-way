@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+cat ../02authorize/response.txt | sed -n '/^{$/,/^}$/p' | jq -r '.finalize' | sed 's/\n//g'

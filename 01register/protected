@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+nonce=$(../get-nonce)
+yq -n --output-format=json ".jwk=load(\"../keys/public.json\") | .nonce=\"$nonce\" | .url=\"$(./url)\" | .alg=\"ES256\""
+

@@ -1,0 +1,10 @@
+jq -c '.' << EOF
+{
+  "identifiers": [
+    {
+      "type": "dns",
+      "value": "FIXME"
+    }
+  ]
+}
+EOF

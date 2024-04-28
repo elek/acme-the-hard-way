@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#printf "%s" $(cat jwk) | tr -d ' ' | openssl dgst -sha256 -binary | ../encode
+#echo 
+printf "%s" $(cat ../01register/response.txt | sed -n '/^{$/,/^}$/p' | jq -r -c --sort-keys '.key' | sed 's/\n//g') |  openssl dgst -sha256 -binary | ../encode

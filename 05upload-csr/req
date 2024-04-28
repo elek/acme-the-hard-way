@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+jq --null-input ".csr=\"$(cat req.der |../encode)\""

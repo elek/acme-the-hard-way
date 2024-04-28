@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+http $(cat ../02authorize/response.txt | sed -n '/^{$/,/^}$/p' | jq -r '.authorizations.[0]')

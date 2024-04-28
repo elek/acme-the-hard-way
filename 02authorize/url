@@ -1,0 +1,2 @@
+printf "%s" $(jq -r '.newOrder' ../00directory/directory.json)
+
